@@ -50,17 +50,21 @@ public class TextTwist {
                     points++;
                 }
                 // If we find a character not in the builder,
-                // we want to award no points and break the loop
+                // we want to set points to 0 and break the loop
                 else{
                     points = 0;
                     break;
                 }
             }
+            // If your twist was invalid,
+            // we want to just gonna skip points
+            if (points == 0)
+                continue;
             // If we get a six letter word,
             // we want to add an extra 50 points
             if (string.length() == 6)
                 score += 50;
-            // Finally, we add the points for the twist to the total score
+            // The score is increased by the twist's length -2
             score += points - 2;
         }
         return score;
